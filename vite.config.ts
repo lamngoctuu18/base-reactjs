@@ -20,6 +20,7 @@ export default defineConfig({
       '@styles': '/src/styles',
       '@routes': '/src/routes',
       '@base': '/src/base',
+      '@features': '/src/features',
     },
   },
 });

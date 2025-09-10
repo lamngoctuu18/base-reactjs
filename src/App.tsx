@@ -1,12 +1,14 @@
 import React from 'react';
-import { useRoutes } from 'react-router-dom';
-import routes from './routes';
+import { RouterProvider } from '@tanstack/react-router';
 import ErrorBoundary from '@components/common/ErrorBoundary';
+import { router } from '@routes/routes';
 
 const App: React.FC = () => {
-  const element = useRoutes(routes);
-
-  return <ErrorBoundary>{element}</ErrorBoundary>;
+  return (
+    <ErrorBoundary>
+      <RouterProvider router={router} />
+    </ErrorBoundary>
+  );
 };
 
 export default App;

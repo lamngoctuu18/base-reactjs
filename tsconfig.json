@@ -23,7 +23,8 @@
       "@assets/*": ["assets/*"],
       "@styles/*": ["styles/*"],
       "@routes/*": ["routes/*"],
-      "@base/*": ["base/*"]
+      "@base/*": ["base/*"],
+      "@features/*": ["features/*"]
     },
     "composite": true,
     "rootDir": "src",
