@@ -1,4 +1,4 @@
-import HeaderAdmin from '@components/headers/admin/HeaderAdmin';
+import HeaderClient from '@components/headers/client/HeaderClient';
 import { SidebarAdmin } from '@components/sidebars/admin/SidebarAdmin';
 import { Outlet } from '@tanstack/react-router';
 import { Layout } from 'antd';
@@ -29,7 +29,7 @@ const MainLayout = () => {
             height: 64,
           }}
         >
-          <HeaderAdmin />
+          <HeaderClient />
         </Header>
         <Content
           style={{
