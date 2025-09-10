@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from '@tanstack/react-router';
 
 const NotFound: React.FC = () => (
   <div className="flex flex-col items-center justify-center h-full">

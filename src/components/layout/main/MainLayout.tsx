@@ -1,17 +1,50 @@
-import Header from '@components/headers/Header';
-import Sidebar from '@components/sidebars/Sidebar';
+import HeaderAdmin from '@components/headers/admin/HeaderAdmin';
+import { SidebarAdmin } from '@components/sidebars/admin/SidebarAdmin';
 import { Outlet } from '@tanstack/react-router';
+import { Layout } from 'antd';
+import { Content, Header } from 'antd/es/layout/layout';
+import Sider from 'antd/es/layout/Sider';
 
-const MainLayout = () => (
-  <div className="flex flex-col min-h-screen">
-    <Header />
-    <div className="flex flex-1">
-      <Sidebar />
-      <main className="flex-1 p-6 bg-gray-50 dark:bg-gray-900">
-        <Outlet />
-      </main>
-    </div>
-  </div>
-);
+const MainLayout = () => {
+  return (
+    <Layout style={{ minHeight: '100vh' }}>
+      <Sider
+        collapsible
+        width={220}
+        style={{
+          background: '#001529',
+          boxShadow: '2px 0 8px rgba(0,0,0,0.05)',
+        }}
+      >
+        <SidebarAdmin collapsed={false} />
+      </Sider>
+      <Layout>
+        <Header
+          style={{
+            background: '#fff',
+            boxShadow: '0 2px 8px #f0f1f2',
+            padding: '0 24px',
+            display: 'flex',
+            alignItems: 'center',
+            height: 64,
+          }}
+        >
+          <HeaderAdmin />
+        </Header>
+        <Content
+          style={{
+            margin: '24px',
+            background: '#fff',
+            borderRadius: 8,
+            minHeight: 360,
+            boxShadow: '0 1px 4px rgba(0,21,41,.08)',
+          }}
+        >
+          <Outlet />
+        </Content>
+      </Layout>
+    </Layout>
+  );
+};
 
 export default MainLayout;
