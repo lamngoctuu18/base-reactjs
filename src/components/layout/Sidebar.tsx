@@ -15,7 +15,6 @@ const Sidebar: React.FC = () => (
       >
         Home
       </NavLink>
-      {/* Add more NavLinks here */}
     </nav>
   </aside>
 );

@@ -50,11 +50,17 @@ class HttpService {
       return response.data;
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {
-        const ax = err as AxiosError<any>;
+        const ax = err as AxiosError<unknown>;
         const status = ax.response?.status;
         const code = ax.code;
         const serverMessage =
-          (ax.response?.data && (ax.response.data.message as string)) ||
+          (ax.response?.data &&
+          typeof ax.response.data === 'object' &&
+          ax.response.data !== null &&
+          'message' in ax.response.data &&
+          typeof (ax.response.data as { message?: unknown }).message === 'string'
+            ? (ax.response.data as { message: string }).message
+            : undefined) ||
           ax.message ||
           'Request failed';
         throw new HttpError(serverMessage, {
